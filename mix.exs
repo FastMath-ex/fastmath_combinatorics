@@ -8,7 +8,15 @@ defmodule FastMathCombinatorics.MixProject do
       version: "0.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package(),
+      source_url: "https://github.com/FastMath-ex/fastmath_combinatorics",
+      docs: [
+        # The main page in the generated documentation
+        main: "readme",
+        format: "html",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -19,10 +27,23 @@ defmodule FastMathCombinatorics.MixProject do
     ]
   end
 
+  # Specify which files are to be included in the final package
+  defp package do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/FastMath-ex/fastmath_combinatorics"},
+      files: [
+        "lib",
+        "mix.exs",
+        "README.md"
+      ]
+    ]
+  end
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:memoize, "~> 1.4"}
+      {:ex_doc, "~> 0.25", only: :dev, runtime: false}
     ]
   end
 end
